@@ -12,6 +12,12 @@ class Settings(BaseSettings):
     minio_secret_key: str = "minio123"
     minio_bucket: str = "controldoc"
     minio_secure: bool = False
+    smtp_host: str = "localhost"
+    smtp_port: int = 1025
+    smtp_username: str | None = None
+    smtp_password: str | None = None
+    smtp_from: str = "noreply@example.com"
+    smtp_use_tls: bool = False
 
     class Config:
         env_file = ".env"
