@@ -7,6 +7,7 @@ from pydantic import BaseModel, EmailStr
 class CompanyBase(BaseModel):
     name: str
     tax_id: str
+    compliance_expires_at: datetime | None = None
 
 
 class CompanyCreate(CompanyBase):
@@ -26,6 +27,7 @@ class WorkerBase(BaseModel):
     first_name: str
     last_name: str
     email: EmailStr
+    certification_expires_at: datetime | None = None
 
 
 class WorkerCreate(WorkerBase):
@@ -45,6 +47,7 @@ class DocumentBase(BaseModel):
     worker_id: Optional[int]
     title: str
     file_key: str
+    expires_at: datetime | None = None
 
 
 class DocumentCreate(DocumentBase):
