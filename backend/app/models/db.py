@@ -1,4 +1,10 @@
+from __future__ import annotations
+
+from __future__ import annotations
+
 from datetime import datetime
+
+from typing import Optional
 
 from sqlalchemy import DateTime, ForeignKey, Integer, String, func
 from sqlalchemy.orm import DeclarativeBase, Mapped, mapped_column, relationship
@@ -49,7 +55,9 @@ class Document(Base):
 
     company: Mapped[Company] = relationship(back_populates="documents")
     worker: Mapped[Worker | None] = relationship(back_populates="documents")
-    expiration: Mapped["Expiration" | None] = relationship(back_populates="document", uselist=False, cascade="all, delete-orphan")
+    expiration: Mapped[Optional["Expiration"]] = relationship(
+        back_populates="document", uselist=False, cascade="all, delete-orphan"
+    )
 
 
 class Expiration(Base):

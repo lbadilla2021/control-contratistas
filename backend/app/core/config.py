@@ -7,6 +7,10 @@ class Settings(BaseSettings):
     jwt_secret_key: str = "CHANGE_ME"
     jwt_algorithm: str = "HS256"
     access_token_expire_minutes: int = 60
+    admin_email: str = "lbadilla1970@gmail.com"
+    admin_password: str = "CerroColorado.2020"
+    admin_full_name: str = "Administrador"
+    allowed_origins: list[str] = ["http://localhost:3000", "http://localhost:8000"]
     minio_endpoint: str = "minio:9000"
     minio_access_key: str = "minio"
     minio_secret_key: str = "minio123"
